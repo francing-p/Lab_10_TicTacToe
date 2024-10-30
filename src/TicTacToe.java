@@ -11,10 +11,11 @@ public class TicTacToe {
         String cont=" ";
 
         do {
+            // include booleans in first while loop so that they reset when game resets
             boolean gameWinX = false;
             boolean gameWinO = false;
             boolean gameTie = false;
-            int moveCount = 0; // initialize move counter
+            int moveCount = 0; // initialize move counter , reset when game resets
             clearBoard();
             do { // while there isn't a win , do this -
 
