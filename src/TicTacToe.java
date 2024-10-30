@@ -174,14 +174,14 @@ public class TicTacToe {
         return result;
     }
 
-    private static boolean isWin(String player){
+    private static boolean isWin(String player){ // check for any kind of win - if win, return true
         if(isColWin(player) || isRowWin(player) || isDiagonalWin(player)) {
             return true;
         }
         return false;
     }
 
-    private static boolean isColWin(String player){
+    private static boolean isColWin(String player){ // check for column win
         for(int col = 0; col<COLS; col++){
             if(board[0][col].equals(player) && board[1][col].equals(player) && board[2][col].equals(player)){
                 return true;
@@ -190,7 +190,7 @@ public class TicTacToe {
         return false;
     }
 
-    private static boolean isRowWin(String player) {
+    private static boolean isRowWin(String player) { // check for row win
         for(int row=0; row<ROWS; row++){
             if(board[row][0].equals(player) && board[row][1].equals(player) && board[row][2].equals(player)){
                 return true;
@@ -199,7 +199,8 @@ public class TicTacToe {
         return false;
     }
 
-    private static boolean isDiagonalWin(String player){
+    private static boolean isDiagonalWin(String player){ // check for diagonal win
+        // have to hard code locations, can't iterate through loop
         if(board[0][0].equals(player) && board[1][1].equals(player) && board[2][2].equals(player)){
             return true;
         }
@@ -208,11 +209,11 @@ public class TicTacToe {
         }
         return false;
     }
-    private static boolean isTie(){
+    private static boolean isTie(){ // check for tie
         boolean result=false;
         int canVector = 0; // cancel win vector
-        // DIAGONAL -- If there is one X in [0,0] , [1,1] , [2,2] and an O in one of the other locations, win vector cancelled
-        // TWO WIN VECTORS
+        // DIAGONAL
+        // TWO WIN VECTORS (Hard coded, can't loop)
         if ((board[0][0].equals("X") || board[1][1].equals("X") || board[2][2].equals("X")) && (board[0][0].equals("O") || board[1][1].equals("O") || board[2][2].equals("O"))){
             canVector+=1;
         }
